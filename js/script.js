@@ -5,62 +5,160 @@ window.onload = () =>{
     }
 }
 
-const team1NameInput = document.getElementById('team1Name');
-const team2NameInput = document.getElementById('team2Name');
-const team1ScoreDisplay = document.getElementById('team1Score');
-const team2ScoreDisplay = document.getElementById('team2Score');
-const team1WinsDisplay = document.getElementById('team1Wins');
-const team2WinsDisplay = document.getElementById('team2Wins');
 
-let team1Score = 0;
-let team2Score = 0;
-let team1Wins = 0;
-let team2Wins = 0;
 
-document.getElementById('point1').addEventListener('click', () => {
-  team1Score += 1;
-  updateScore();
-});
 
-document.getElementById('point3').addEventListener('click', () => {
-  team1Score += 3;
-  updateScore();
-});
 
-document.getElementById('point6').addEventListener('click', () => {
-  team1Score += 6;
-  updateScore();
-});
+document.getElementById('bot').addEventListener('click', function() {
+  const valorCampo = document.getElementById('nome').value;
+  const resultadoElemento = document.getElementById('nome2');
+  resultadoElemento.textContent = ` ${valorCampo}`;
 
-document.getElementById('point12').addEventListener('click', () => {
-  team1Score += 12;
-  updateScore();
-});
+})
 
-document.getElementById('reset').addEventListener('click', () => {
-  team1Score = 0;
-  team2Score = 0;
-  updateScore();
-});
+document.getElementById('bot1').addEventListener('click', function() {
+  const valorCampo = document.getElementById('nome1').value;
+  const resultadoElemento = document.getElementById('nome3');
+  resultadoElemento.textContent = ` ${valorCampo}`;
 
-function updateScore() {
-  team1ScoreDisplay.textContent = team1Score;
-  team2ScoreDisplay.textContent = team2Score;
+})
 
-  if (team1Score >= 12) {
-    team1Wins += 1;
-    team1WinsDisplay.textContent = team1Wins;
-    resetGame();
-  } else if (team2Score >= 12) {
-    team2Wins += 1;
-    team2WinsDisplay.textContent = team2Wins;
-    resetGame();
+const pontosEquipe1Elemento = document.getElementById('pontosEquipe1');
+const pontosEquipe2Elemento = document.getElementById('pontosEquipe2');
+const vitoriasEquipe1Elemento = document.getElementById('vitoriasEquipe1');
+const vitoriasEquipe2Elemento = document.getElementById('vitoriasEquipe2');
+let partidaAtual = 1;
+let pontosEquipe1 = 0;
+let pontosEquipe2 = 0;
+let vitoriasEquipe1 = 0;
+let vitoriasEquipe2 = 0;
+let rodadaAtual = 1;
+
+function atualizarPontuacao() {
+  pontosEquipe1Elemento.textContent = pontosEquipe1;
+  pontosEquipe2Elemento.textContent = pontosEquipe2;
+}
+
+function atualizarVitorias() {
+  vitoriasEquipe1Elemento.textContent = vitoriasEquipe1;
+  vitoriasEquipe2Elemento.textContent = vitoriasEquipe2;
+}
+
+function vencerRodada(pontos) {
+  if (pontosEquipe1 >= pontos) {
+    vitoriasEquipe1++;
+  } else if (pontosEquipe2 >= pontos) {
+    vitoriasEquipe2++;
+  }
+
+
+  atualizarVitorias();
+  
+  pontosEquipe1 = 0;
+  pontosEquipe2 = 0;
+  atualizarPontuacao();
+
+  rodadaAtual++;
+  if (rodadaAtual > 3) {
+    alert('Jogo finalizado. Pontuação total:');
+    alert(`Equipe 1: ${vitoriasEquipe1} vitórias`);
+    alert(`Equipe 2: ${vitoriasEquipe2} vitórias`);
   }
 }
 
-function resetGame() {
-  team1Score = 0;
-  team2Score = 0;
-  team1ScoreDisplay.textContent = '0';
-  team2ScoreDisplay.textContent = '0';
-}
+document.getElementById('ponto1').addEventListener('click', () => {
+  pontosEquipe1 += 1;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('ponto3').addEventListener('click', () => {
+  pontosEquipe1 += 3;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('ponto6').addEventListener('click', () => {
+  pontosEquipe1 += 6;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('ponto9').addEventListener('click', () => {
+  pontosEquipe1 += 9;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('ponto12').addEventListener('click', () => {
+  pontosEquipe1 += 12;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  pontosEquipe1 = 0;
+  pontosEquipe2 = 0;
+  vitoriasEquipe1 = 0;
+  vitoriasEquipe2 = 0;
+  atualizarPontuacao();
+  rodadaAtual = 1;
+});
+document.getElementById('ponto1Equipe2').addEventListener('click', () => {
+  pontosEquipe2 += 1;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('ponto3Equipe2').addEventListener('click', () => {
+  pontosEquipe2 += 3;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('ponto6Equipe2').addEventListener('click', () => {
+  pontosEquipe2 += 6;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('ponto9Equipe2').addEventListener('click', () => {
+  pontosEquipe2 += 9;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('ponto12Equipe2').addEventListener('click', () => {
+  pontosEquipe2 += 12;
+  atualizarPontuacao();
+  if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
+    vencerRodada(12);
+  }
+});
+
+document.getElementById('reset1').addEventListener('click', () => {
+  pontosEquipe1 = 0;
+  pontosEquipe2 = 0;
+  vitoriasEquipe1 = 0;
+  vitoriasEquipe2 = 0;
+  atualizarPontuacao();
+  rodadaAtual = 1;
+});
