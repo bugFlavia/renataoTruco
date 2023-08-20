@@ -12,8 +12,34 @@
     <meta name="theme-color" content="white" />
     
 </head>
-<body>
-    <p>Hi Barbie!</p>
+
+    <body>
+        <div class="container">
+          <h1>Pontuador de Truco </h1>
+          <div class="teams">
+            <input type="text" id="team1Name" placeholder="Nome da equipe 1">
+            <input type="text" id="team2Name" placeholder="Nome da equipe 2">
+          </div>
+          <div class="score">
+            <div id="team1" class="team">
+              <h2>Equipe 1</h2>
+              <p>Pontos: <span id="team1Score">0</span></p>
+              <p>Vitórias: <span id="team1Wins">0</span></p>
+            </div>
+            <div id="team2" class="team">
+              <h2>Equipe 2</h2>
+              <p>Pontos: <span id="team2Score">0</span></p>
+              <p>Vitórias: <span id="team2Wins">0</span></p>
+            </div>
+          </div>
+          <div class="buttons">
+            <button id="point1">1 Ponto</button>
+            <button id="point3">3 Pontos</button>
+            <button id="point6">6 Pontos</button>
+            <button id="point12">12 Pontos</button>
+            <button id="reset">Resetar</button>
+          </div>
+        </div>
     <script src='./js/script.js'></script>
 </body>
 </html>
