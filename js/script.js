@@ -22,7 +22,10 @@ document.getElementById('bot1').addEventListener('click', function() {
   resultadoElemento.textContent = ` ${valorCampo}`;
 
 })
-
+const nome = document.getElementById('nome');
+const nome1 = document.getElementById('nome1');
+const nome2 = document.getElementById('nome2');
+const nome3 = document.getElementById('nome3');
 const pontosEquipe1Elemento = document.getElementById('pontosEquipe1');
 const pontosEquipe2Elemento = document.getElementById('pontosEquipe2');
 const vitoriasEquipe1Elemento = document.getElementById('vitoriasEquipe1');
@@ -33,6 +36,7 @@ let pontosEquipe2 = 0;
 let vitoriasEquipe1 = 0;
 let vitoriasEquipe2 = 0;
 let rodadaAtual = 1;
+
 
 function atualizarPontuacao() {
   pontosEquipe1Elemento.textContent = pontosEquipe1;
@@ -111,8 +115,13 @@ document.getElementById('reset').addEventListener('click', () => {
   pontosEquipe2 = 0;
   vitoriasEquipe1 = 0;
   vitoriasEquipe2 = 0;
+
   atualizarPontuacao();
   rodadaAtual = 1;
+  nome.value = ''; // Limpa o nome da equipe 1
+  nome1.value = ''; // Limpa o nome da equipe 2
+  nome2.textContent = 'Equipe 1'; // Reseta o nome da equipe 1 no cabeçalho
+  nome3.textContent = 'Equipe 2'; // Reseta o nome da equipe 2 no cabeçalho
 });
 document.getElementById('ponto1Equipe2').addEventListener('click', () => {
   pontosEquipe2 += 1;
@@ -161,4 +170,5 @@ document.getElementById('reset1').addEventListener('click', () => {
   vitoriasEquipe2 = 0;
   atualizarPontuacao();
   rodadaAtual = 1;
+  
 });
