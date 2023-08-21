@@ -111,17 +111,12 @@ if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
 });
 
 document.getElementById('reset').addEventListener('click', () => {
-pontosEquipe1 = 0;
-pontosEquipe2 = 0;
-vitoriasEquipe1 = 0;
-vitoriasEquipe2 = 0;
-
-atualizarPontuacao();
-rodadaAtual = 1;
-nome.value = ''; // Limpa o nome da equipe 1
-nome1.value = ''; // Limpa o nome da equipe 2
-nome2.textContent = 'Equipe 1'; // Reseta o nome da equipe 1 no cabeçalho
-nome3.textContent = 'Equipe 2'; // Reseta o nome da equipe 2 no cabeçalho
+  pontosEquipe1 = 0;
+  pontosEquipe2 = 0;
+  vitoriasEquipe1 = 0;
+  vitoriasEquipe2 = 0;
+  atualizarPontuacao();
+  rodadaAtual = 1;
 });
 document.getElementById('ponto1Equipe2').addEventListener('click', () => {
 pontosEquipe2 += 1;
@@ -164,12 +159,11 @@ if (pontosEquipe1 >= 12 || pontosEquipe2 >= 12) {
 });
 
 document.getElementById('reset1').addEventListener('click', () => {
-pontosEquipe1 = 0;
-pontosEquipe2 = 0;
-vitoriasEquipe1 = 0;
-vitoriasEquipe2 = 0;
-atualizarPontuacao();
-rodadaAtual = 1;
-
+  pontosEquipe1 = 0;
+  pontosEquipe2 = 0;
+  vitoriasEquipe1 = 0;
+  vitoriasEquipe2 = 0;
+  atualizarPontuacao();
+  rodadaAtual = 1;
 });
 
